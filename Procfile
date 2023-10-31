@@ -1,1 +1,1 @@
-worker: python3 -m FZBypass
+worker: python3 update.py && python3 -m FZBypass
