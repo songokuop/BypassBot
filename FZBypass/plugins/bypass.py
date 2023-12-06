@@ -14,13 +14,13 @@ from FZBypass.core.exceptions import DDLException
 
 @Bypass.on_message(command('start'))
 async def start_msg(client, message):
-    await message.reply(f'''<b><i>FZ Bypass Bot!</i></b>
+    await message.reply(f'''<b><i>Roku Bypass Bot!</i></b>
     
     <i>A Powerful Elegant Multi Threaded Bot written in Python... which can Bypass Various Shortener Links, Scrape links, and More ... </i>
     
     <i><b>Bot Started {convert_time(time() - BOT_START)} ago...</b></i>
 
-🤖 <b>➜ :</b> <a href=https://t.me/RokuLinkBypassRobot>𝖴𝗌𝖾 𝖯𝗋𝗂𝗏𝖺𝗍𝖾𝗅𝗒</a>  <i>(Bypass Topic)</i>''',
+🤖 <b>➜ :</b> <a href=https://t.me/RokuLinkBypassRobot>𝖴𝗌𝖾 𝖯𝗋𝗂𝗏𝖺𝗍𝖾𝗅𝗒</a>''',
         quote=True,
         reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton('⛅ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌', url='https://t.me/Roofiverse'), InlineKeyboardButton('🌨️ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍', url="https://t.me/Roofiverse")]
