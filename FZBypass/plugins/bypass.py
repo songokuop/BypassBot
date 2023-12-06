@@ -20,7 +20,7 @@ async def start_msg(client, message):
     
     <i><b>Bot Started {convert_time(time() - BOT_START)} ago...</b></i>
 
-🤖 <b>➜ </b> <a href='https://telegra.ph/How-To-Use-12-06'>𝖧𝗈𝗐 𝖳𝗈 𝖴𝗌𝖾 𝖬𝖾</a>  <i>(Bypass Topic)</i>''',
+🤖 <b>➜ </b> <a href="https://telegra.ph/How-To-Use-12-06">𝖧𝗈𝗐 𝖳𝗈 𝖴𝗌𝖾 𝖬𝖾</a>  <i>(Bypass Topic)</i>''',
         quote=True,
         reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton('⛅ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌', url='https://t.me/Rokubotz'), InlineKeyboardButton('🌨️ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍', url="https://t.me/Roofiverse")]
