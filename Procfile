@@ -1,2 +1,1 @@
-python3 update.py && python3 -m FZBypass
-fi
+ python3 -m FZ
