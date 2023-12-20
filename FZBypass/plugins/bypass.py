@@ -1,14 +1,14 @@
 from time import time
 from re import match
 from asyncio import create_task, gather, sleep as asleep, create_subprocess_exec
-from pyrogram.filters import command, private, user
+from pyrogram.filters import create, command, private, user
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultArticle, InputTextMessageContent
 from pyrogram.enums import MessageEntityType
 from pyrogram.errors import QueryIdInvalid
 
 from FZBypass import Config, Bypass, BOT_START, LOGGER
 from FZBypass.core.bypass_checker import direct_link_checker, is_excep_link
-from FZBypass.core.bot_utils import chat_and_topics, convert_time
+from FZBypass.core.bot_utils import AuthChatsTopics, convert_time, BypassFilter
 from FZBypass.core.exceptions import DDLException
 
 
@@ -28,13 +28,13 @@ async def start_msg(client, message):
     )
 
 
-@Bypass.on_message(command(['bypass', 'bp']) & (user(Config.OWNER_ID) | chat_and_topics))
+@Bypass.on_message(BypassFilter & (user(Config.OWNER_ID) | AuthChatsTopics))
 async def bypass_check(client, message):
     uid = message.from_user.id
     if (reply_to := message.reply_to_message) and (reply_to.text is not None or reply_to.caption is not None):
         txt = reply_to.text or reply_to.caption
         entities = reply_to.entities or reply_to.caption_entities
-    elif len(message.command) > 1:
+    elif Config.AUTO_BYPASS or len(message.text.split()) > 1:
         txt = message.text
         entities = message.entities
     else:
@@ -110,7 +110,7 @@ async def inline_query(client, query):
         link = string.strip('!bp ')
         start = time()
         try:
-            bp_link = await direct_link_checker(link)
+            bp_link = await direct_link_checker(link, True)
             end = time()
             
             if not is_excep_link(link):

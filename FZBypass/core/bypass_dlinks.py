@@ -30,16 +30,16 @@ async def filepress(url: str):
                 'id': raw.path.split('/')[-1],
                 'method': 'publicDownlaod',
             }
-            async with await sess.post(f'{raw.scheme}://{raw.hostname}/api/file/downlaod/', headers={'Referer': f'{raw.scheme}://{raw.hostname}'}, json=json_data) as resp:
-                d_id = await resp.json()
-            if d_id.get('data', False):
-                dl_link = f"https://drive.google.com/uc?id={d_id['data']}&export=download"
-                parsed = BeautifulSoup(cget('GET', dl_link).content, 'html.parser').find('span')
-                combined = str(parsed).rsplit('(', maxsplit=1)
-                name, size = combined[0], combined[1].replace(')', '') + 'B'
-            else:
-                dl_link = "Unavailable" if d_id["statusText"] == "Bad Request" else d_id["statusText"]
-                name, size = "N/A", "N/A"
+            #async with await sess.post(f'{raw.scheme}://{raw.hostname}/api/file/downlaod/', headers={'Referer': f'{raw.scheme}://{raw.hostname}'}, json=json_data) as resp:
+            #    d_id = await resp.json()
+            #if d_id.get('data', False):
+            #    dl_link = f"https://drive.google.com/uc?id={d_id['data']}&export=download"
+            #    parsed = BeautifulSoup(cget('GET', dl_link).content, 'html.parser').find('span')
+            #    combined = str(parsed).rsplit('(', maxsplit=1)
+            #    name, size = combined[0], combined[1].replace(')', '') + 'B'
+            #else:
+            #    dl_link = "Unavailable" if d_id["statusText"] == "Bad Request" else d_id["statusText"]
+            #    name, size = "N/A", "N/A"
             del json_data['method']
             async with await sess.post(f'{raw.scheme}://{raw.hostname}/api/file/telegram/downlaod/', headers={'Referer': f'{raw.scheme}://{raw.hostname}'}, json=json_data) as resp:
                 tg_id = await resp.json()
@@ -56,14 +56,11 @@ async def filepress(url: str):
     else:
         tg_link_text = f'<a href="{tg_link}">Click Here</a>'
 
-    parse_txt = f'''┏<b>Name:</b> <code>{name}</code>
-┠<b>Size:</b> <code>{size}</code>
-┠<b>FilePress:</b> <a href="{url}">Click Here</a>
-┠<b>Telegram:</b> {tg_link_text}
-'''
-    if "drive.google.com" in dl_link and Config.DIRECT_INDEX:
-        parse_txt += f"┠<b>Temp Index:</b> <a href='{get_dl(dl_link)}'>Click Here</a>\n"
-    parse_txt += f"┗<b>GDrive:</b> <a href='{dl_link}'>Click Here</a>"
+    parse_txt = f'''┏<b>FilePress:</b> <a href="{url}">Click Here</a>
+┗<b>Telegram:</b> {tg_link_text}'''
+    #if "drive.google.com" in dl_link and Config.DIRECT_INDEX:
+    #    parse_txt += f"┠<b>Temp Index:</b> <a href='{get_dl(dl_link)}'>Click Here</a>\n"
+    #parse_txt += f"┗<b>GDrive:</b> <a href='{dl_link}'>Click Here</a>"
     return parse_txt
 
 
