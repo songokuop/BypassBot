@@ -19,14 +19,14 @@ load_dotenv('config.env', override=True)
 BOT_START = time()
 
 class Config:
-    BOT_TOKEN = getenv('BOT_TOKEN', '')
-    API_HASH  = getenv('API_HASH', '')
-    API_ID    = getenv('API_ID', '')
+    BOT_TOKEN = ('6440302815:AAH2-6t-dxB74lMmg0aY5tl35kP_Rry9cPA')
+    API_HASH  = ('b36c5dc986f77eedd4bbf356b65eab19')
+    API_ID    = ('21027612')
     if BOT_TOKEN == '' or API_HASH == '' or API_ID == '':
         LOGGER.critical('ENV Missing. Exiting Now...')
         exit(1)
-    AUTO_BYPASS     = getenv('AUTO_BYPASS', 'False').lower() == 'true'
-    AUTH_CHATS      = getenv('AUTH_CHATS', '').split()
+    AUTO_BYPASS     = getenv('AUTO_BYPASS', 'True').lower() == 'true'
+    AUTH_CHATS = ('-1002005718645')
     OWNER_ID        = int(getenv('OWNER_ID', 0))
     DIRECT_INDEX    = getenv('DIRECT_INDEX', '').rstrip('/')
     LARAVEL_SESSION = getenv('LARAVEL_SESSION', '')
