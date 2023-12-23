@@ -25,9 +25,9 @@ class Config:
     if BOT_TOKEN == '' or API_HASH == '' or API_ID == '':
         LOGGER.critical('ENV Missing. Exiting Now...')
         exit(1)
-    AUTO_BYPASS     = getenv('AUTO_BYPASS', 'True').lower() == 'true'
+    AUTO_BYPASS     = getenv('AUTO_BYPASS', 'False').lower() == 'true'
     AUTH_CHATS = ('-1002005718645')
-    OWNER_ID        = int(getenv('OWNER_ID', 0))
+    OWNER_ID = int('5098097249')
     DIRECT_INDEX    = getenv('DIRECT_INDEX', '').rstrip('/')
     LARAVEL_SESSION = getenv('LARAVEL_SESSION', '')
     XSRF_TOKEN      = getenv('XSRF_TOKEN', '')
