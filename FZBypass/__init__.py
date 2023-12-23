@@ -26,7 +26,7 @@ class Config:
         LOGGER.critical('ENV Missing. Exiting Now...')
         exit(1)
     AUTO_BYPASS     = getenv('AUTO_BYPASS', 'False').lower() == 'true'
-    AUTH_CHATS = ('-1002008661072')
+    AUTH_CHATS = ('-1002008661072 1412')
     OWNER_ID        = int(getenv('OWNER_ID', 1594245715))        
     DIRECT_INDEX    = getenv('DIRECT_INDEX', '').rstrip('/')
     LARAVEL_SESSION = getenv('LARAVEL_SESSION', '')
