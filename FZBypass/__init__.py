@@ -27,7 +27,6 @@ class Config:
         exit(1)
     AUTO_BYPASS     = getenv('AUTO_BYPASS', 'False').lower() == 'true'
     AUTH_CHATS = ('-1002005718645')
-    OWNER_ID = int('5098097249')
     DIRECT_INDEX    = getenv('DIRECT_INDEX', '').rstrip('/')
     LARAVEL_SESSION = getenv('LARAVEL_SESSION', '')
     XSRF_TOKEN      = getenv('XSRF_TOKEN', '')
