@@ -2,8 +2,8 @@
     "name": "Bypass Bot",
     "description": "Bypass Bot that can Bypass Ad Links and Generate Direct Links",
     "stack": "container",
-    "website": "https://github.com/Prince94163/FZBypassBot",
-    "repository": "https://github.com/Prince94163/FZBypassBot",
+    "website": "https://github.com/songokuop/FZBypassBot",
+    "repository": "https://github.com/songokuop/FZBypassBot",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
