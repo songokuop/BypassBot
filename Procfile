@@ -1,1 +1,1 @@
-worker: python3 -m FZBypass
+worker: bash start.sh
